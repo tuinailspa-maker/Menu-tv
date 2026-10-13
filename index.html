@@ -343,7 +343,8 @@
       <div class="relative flex-1 w-full h-full bg-slate-950 flex items-center justify-center overflow-hidden">
         <!-- RIGHT SIDE: VIDEO & MEDIA SHOWCASE (1/3 WIDTH - 33.333%) -->
 <section class="w-1/3 h-full bg-slate-900 flex flex-col justify-between relative overflow-hidden">
-  <!-- Top Video Header Overlay -->
+  
+  <!-- LỚP PHỦ CHỮ HEADER -->
   <div class="absolute top-4 left-4 right-4 z-10 flex items-center justify-between bg-slate-950/80 backdrop-blur px-4 py-2.5 rounded-2xl border border-slate-800 shadow-xl">
     <div class="flex items-center space-x-2">
       <span class="w-2.5 h-2.5 rounded-full bg-red-500 animate-pulse"></span>
@@ -352,10 +353,10 @@
     <span class="text-[10px] bg-amber-500/20 text-amber-300 px-2 py-0.5 rounded border border-amber-500/30 font-mono">OUVERT 7/7</span>
   </div>
 
-  <!-- Main Video / Slideshow Container (DÙNG IFRAME GOOGLE DRIVE ĐỂ AUTO-PLAY) -->
+  <!-- KHUNG CHỨA VIDEO TỰ ĐỘNG CHẠY -->
   <div class="relative flex-1 w-full h-full bg-slate-950 flex items-center justify-center overflow-hidden">
-    <iframe src="https://drive.google.com/file/d/1ybgZ7GUoABEdgYh99leqt_LUmQcDnoOL/preview?autoplay=1&mute=1" 
-            class="w-full h-full object-cover pointer-events-none" 
+    <iframe src="https://drive.google.com/file/d/1ybgZ7GUoABEdgYh99leqt_LUmQcDnoOL/preview?autoplay=1&mute=1&controls=0" 
+            class="absolute top-1/2 left-1/2 w-[150%] h-[150%] -translate-x-1/2 -translate-y-1/2 pointer-events-none" 
             allow="autoplay; fullscreen" 
             frameborder="0">
     </iframe>
@@ -367,14 +368,7 @@
       <h3 class="text-base font-serif font-bold text-amber-100 italic">"Sublimez vos mains avec notre Gel Bio & Nail Art Artisanal"</h3>
     </div>
   </div>
-        
-        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950/40 pointer-events-none"></div>
-
-        <div class="absolute bottom-6 left-6 right-6 z-10 bg-slate-950/85 backdrop-blur p-4 rounded-2xl border border-amber-500/20 text-center shadow-2xl">
-          <p class="text-xs text-amber-400 font-semibold uppercase tracking-widest mb-1">Inspiration du jour</p>
-          <h3 class="text-base font-serif font-bold text-amber-100 italic">"Sublimez vos mains avec notre Gel Bio & Nail Art Artisanal"</h3>
-        </div>
-      </div>
+</section>
 
       <!-- Bottom Mini Photo Strip -->
       <div class="h-28 bg-slate-950 border-t border-slate-800 p-3 grid grid-cols-3 gap-2 shrink-0">
