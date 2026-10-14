@@ -74,9 +74,13 @@
       </a>
     </div>
 
-    <!-- Category Switcher Tabs -->
-    <div class="flex items-center space-x-1.5 bg-slate-950/60 p-1 rounded-full border border-slate-800" id="tabs-container">
-      <button onclick="switchTab(0)" class="tab-btn px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all duration-300 bg-amber-500 text-slate-950 shadow" data-tab="0">
+    <!-- Main Split Layout (2/3 Menu Poster + 1/3 Video Gallery) -->
+  <main class="flex-1 flex overflow-hidden">
+
+    <!-- LEFT SIDE: MENU POSTER BOARD (2/3 WIDTH - 66.666%) -->
+    <section class="w-2/3 h-full p-6 overflow-y-auto no-scrollbar flex flex-col justify-between border-r border-slate-800 bg-slate-950/80 relative">
+      <div class="absolute -top-24 -left-24 w-96 h-96 bg-amber-500/5 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute -bottom-24 -right-24 w-96 h-96 bg-amber-600/5 rounded-full blur-3xl pointer-events-none"></div>
         1. Soins des Pieds & Mains
       </button>
       <button onclick="switchTab(1)" class="tab-btn px-3.5 py-1.5 rounded-full text-xs font-medium transition-all duration-300 text-slate-300 hover:text-white hover:bg-slate-800" data-tab="1">
