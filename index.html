@@ -51,14 +51,26 @@
   <!-- Top Header / Navigation Bar with White Logo & Contact Widget -->
   <header class="h-16 bg-slate-900/90 border-b border-amber-500/20 px-5 flex items-center justify-between z-10 shrink-0 backdrop-blur">
     <!-- Logo & Branding (Góc trái) -->
-<div class="flex items-center space-x-3 shrink-0">
-    <div class="w-16 h-16 flex items-center justify-center shrink-0">
-        <img src="whitelogo.png" alt="Tui Nail Spa Logo" class="w-full h-full object-contain >
-    </div>
-    <div>
-        <h1 class="text-lg font-serif font-bold tracking-wide text-amber-200 leading-none">TUI NAIL SPA</h1>
-        <p class="text-[9px] uppercase tracking-widest text-slate-400 mt-0.5">La Beauté Des Ongles</p>
-    </div>
+<div class="flex items-center space-x-3"> <!-- Tăng khoảng cách giữa logo và chữ thành space-x-3 -->
+  
+  <!-- Chỉnh kích thước logo lớn hơn một chút (w-20 h-20 thay vì w-16 h-16) -->
+  <div class="w-20 h-20 flex items-center justify-center shrink-0">
+    <!-- Đã sửa lỗi thiếu dấu nháy kép và thêm class logo-white-filter nếu bạn muốn ép logo thành màu trắng -->
+    <img src="whitelogo.png" alt="Tui Nail Spa Logo" class="w-full h-full object-contain logo-white-filter">
+  </div>
+  
+  <!-- Căn chỉnh lại cụm chữ -->
+  <div class="flex flex-col justify-center mt-1">
+    <!-- Tăng cỡ chữ tên tiệm lên text-2xl -->
+    <h1 class="text-2xl font-serif font-bold tracking-wide text-amber-200 leading-none">
+      TUI NAIL SPA
+    </h1>
+    <!-- Tăng cỡ chữ phụ lên text-xs để dễ đọc hơn trên màn hình TV -->
+    <p class="text-xs uppercase tracking-widest text-slate-400 mt-1">
+      La Beauté Des Ongles
+    </p>
+  </div>
+  
 </div>
 
 
