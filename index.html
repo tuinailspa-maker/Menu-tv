@@ -119,78 +119,210 @@
       <div class="absolute -top-24 -left-24 w-96 h-96 bg-amber-500/5 rounded-full blur-3xl pointer-events-none"></div>
       <div class="absolute -bottom-24 -right-24 w-96 h-96 bg-amber-600/5 rounded-full blur-3xl pointer-events-none"></div>
 
-      <!-- TAB 1: SOIN DES PIEDS & MAINS -->
-      <div id="tab-content-0" class="tab-content space-y-6">
-        <div class="border-b border-amber-500/20 pb-3 flex justify-between items-end">
+    <!-- TAB 1: SOIN DES PIEDS & MAINS -->
+<div id="tab-content-0" class="tab-content space-y-6">
+  <div class="border-b border-amber-500/20 pb-3 flex justify-between items-end">
+    <div>
+      <span class="text-xs font-semibold text-amber-400 uppercase tracking-widest">Section 01</span>
+      <h2 class="text-2xl font-serif font-bold text-amber-100">Soin des Pieds & Mains</h2>
+    </div>
+    <span class="text-xs text-slate-400 italic">Prix hors taxes</span>
+  </div>
+
+  <div class="grid grid-cols-2 gap-6">
+    <!-- Manucure & Pédicure Table -->
+    <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800/80 shadow-md">
+      <h3 class="text-base font-serif font-semibold text-amber-300 mb-3 flex items-center">
+        <i data-lucide="hand" class="w-4 h-4 mr-2 text-amber-400"></i>
+        Manucure & Pédicure
+      </h3>
+      <table class="w-full text-left text-sm">
+        <thead>
+          <tr class="border-b border-slate-800 text-xs text-slate-400">
+            <th class="pb-2 font-normal">Service</th>
+            <th class="pb-2 text-center font-normal">Sans vernis</th>
+            <th class="pb-2 text-center font-normal">Régulier</th>
+            <th class="pb-2 text-center font-normal">Shellac</th>
+            <th class="pb-2 text-right font-normal">Calcium Gel</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-slate-800/50">
+          <tr>
+            <td class="py-2.5 font-medium text-slate-200">Manucure</td>
+            <td class="py-2.5 text-center text-amber-200">$20</td>
+            <td class="py-2.5 text-center text-amber-200">$25</td>
+            <td class="py-2.5 text-center text-amber-200">$35</td>
+            <td class="py-2.5 text-right font-semibold text-amber-300">$40</td>
+          </tr>
+          <tr>
+            <td class="py-2.5 font-medium text-slate-200">Pédicure</td>
+            <td class="py-2.5 text-center text-amber-200">$35</td>
+            <td class="py-2.5 text-center text-amber-200">$40</td>
+            <td class="py-2.5 text-center text-amber-200">$50</td>
+            <td class="py-2.5 text-right font-semibold text-amber-300">-</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Combos Box -->
+    <div class="bg-gradient-to-br from-amber-950/30 to-slate-900/80 p-4 rounded-xl border border-amber-500/30 shadow-md relative overflow-hidden">
+      <div class="absolute top-0 right-0 bg-amber-500 text-slate-950 font-bold text-[10px] px-3 py-0.5 rounded-bl">OFFRE SPÉCIALE</div>
+      <h3 class="text-base font-serif font-semibold text-amber-300 mb-3 flex items-center">
+        <i data-lucide="sparkles" class="w-4 h-4 mr-2 text-amber-400"></i>
+        Combos (Mani-Pédi)
+      </h3>
+      <div class="space-y-2 text-sm">
+        <div class="flex justify-between items-center py-1 border-b border-slate-800/60">
+          <span class="text-slate-300">Sans vernis</span>
+          <span class="font-bold text-amber-300">$55</span>
+        </div>
+        <div class="flex justify-between items-center py-1 border-b border-slate-800/60">
+          <span class="text-slate-300">Avec vernis régulier</span>
+          <span class="font-bold text-amber-300">$65</span>
+        </div>
+        <div class="flex justify-between items-center py-1 border-b border-slate-800/60">
+          <span class="text-slate-300">Shellac</span>
+          <span class="font-bold text-amber-300">$80</span>
+        </div>
+        <div class="flex justify-between items-center py-1">
           <div>
-            <span class="text-xs font-semibold text-amber-400 uppercase tracking-widest">Section 01</span>
-            <h2 class="text-2xl font-serif font-bold text-amber-100">Soin des Pieds & Mains</h2>
+            <span class="text-slate-200 font-medium">Shellac + Calcium Base</span>
           </div>
-          <span class="text-xs text-slate-400 italic">Prix hors taxes</span>
+          <!-- Cập nhật giá Shellac + Calcium thành 80$ -->
+          <span class="font-bold text-amber-300 text-base">$80</span>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-        <div class="grid grid-cols-2 gap-6">
-          <!-- Manucure & Pédicure Table -->
-          <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800/80 shadow-md">
-            <h3 class="text-base font-serif font-semibold text-amber-300 mb-3 flex items-center">
-              <i data-lucide="hand" class="w-4 h-4 mr-2 text-amber-400"></i> Manucure & Pédicure
-            </h3>
-            <table class="w-full text-left text-sm">
-              <thead>
-                <tr class="border-b border-slate-800 text-xs text-slate-400">
-                  <th class="pb-2 font-normal">Service</th>
-                  <th class="pb-2 text-center font-normal">Sans vernis</th>
-                  <th class="pb-2 text-center font-normal">Régulier</th>
-                  <th class="pb-2 text-center font-normal">Shellac</th>
-                  <th class="pb-2 text-right font-normal">Calcium Gel</th>
-                </tr>
-              </thead>
-              <tbody class="divide-y divide-slate-800/50">
-                <tr>
-                  <td class="py-2.5 font-medium text-slate-200">Manucure</td>
-                  <td class="py-2.5 text-center text-amber-200">$20</td>
-                  <td class="py-2.5 text-center text-amber-200">$25</td>
-                  <td class="py-2.5 text-center text-amber-200">$35</td>
-                  <td class="py-2.5 text-right font-semibold text-amber-300">$40</td>
-                </tr>
-                <tr>
-                  <td class="py-2.5 font-medium text-slate-200">Pédicure</td>
-                  <td class="py-2.5 text-center text-amber-200">$35</td>
-                  <td class="py-2.5 text-center text-amber-200">$40</td>
-                  <td class="py-2.5 text-right font-semibold text-amber-300">$50</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+<!-- TAB 2: POSE D'ONGLES & REMPLISSAGES -->
+<div id="tab-content-1" class="tab-content hidden space-y-6">
+  <div class="border-b border-amber-500/20 pb-3 flex justify-between items-end">
+    <div>
+      <span class="text-xs font-semibold text-amber-400 uppercase tracking-widest">Section 02</span>
+      <h2 class="text-2xl font-serif font-bold text-amber-100">Pose d'ongles & Remplissages</h2>
+    </div>
+    <span class="text-xs text-slate-400 italic">Nouveau Set & Remplissages</span>
+  </div>
 
-          <!-- Combos Box -->
-          <div class="bg-gradient-to-br from-amber-950/30 to-slate-900/80 p-4 rounded-xl border border-amber-500/30 shadow-md relative overflow-hidden">
-            <div class="absolute top-0 right-0 bg-amber-500 text-slate-950 font-bold text-[10px] px-3 py-0.5 rounded-bl">OFFRE SPÉCIALE</div>
-            <h3 class="text-base font-serif font-semibold text-amber-300 mb-3 flex items-center">
-              <i data-lucide="sparkles" class="w-4 h-4 mr-2 text-amber-400"></i> Combos (Mani-Pédi)
-            </h3>
-            <div class="space-y-2 text-sm">
-              <div class="flex justify-between items-center py-1 border-b border-slate-800/60">
-                <span class="text-slate-300">Sans vernis</span>
-                <span class="font-bold text-amber-300">$55</span>
-              </div>
-              <div class="flex justify-between items-center py-1 border-b border-slate-800/60">
-                <span class="text-slate-300">Avec vernis régulier</span>
-                <span class="font-bold text-amber-300">$65</span>
-              </div>
-              <div class="flex justify-between items-center py-1 border-b border-slate-800/60">
-                <span class="text-slate-300">Shellac</span>
-                <span class="font-bold text-amber-300">$80</span>
-              </div>
-              <div class="flex justify-between items-center py-1">
-                <div>
-                  <span class="text-slate-200 font-medium">Shellac + Calcium Base</span>
-                </div>
-                <span class="font-bold text-amber-300 text-base">$95</span>
-              </div>
-            </div>
+  <div class="grid grid-cols-2 gap-6">
+    <!-- Pose d'ongles -->
+    <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800/80 shadow-md">
+      <h3 class="text-base font-serif font-semibold text-amber-300 mb-3 flex items-center">
+        <i data-lucide="gem" class="w-4 h-4 mr-2 text-amber-400"></i>
+        Pose d'ongles
+      </h3>
+      <div class="space-y-3 text-sm">
+        <div class="border-b border-slate-800 pb-2">
+          <span class="text-slate-200 font-medium block mb-1">Acrylique / Bio Gel / Après Gel X:</span>
+          <!-- Cập nhật giá 48, 52, 62+ -->
+          <div class="flex justify-between text-xs text-amber-200">
+            <span>Régulier: $48</span>
+            <span>Shellac: $52</span>
+            <span class="font-semibold text-amber-300">Extra long: $62+</span>
           </div>
         </div>
+        <div class="border-b border-slate-800 pb-2">
+          <div class="flex justify-between items-center">
+            <!-- Cập nhật giá 50 -->
+            <span class="text-slate-300">Résine & poudre (Sans pointes)</span>
+            <span class="font-bold text-amber-200">$50</span>
+          </div>
+        </div>
+        <div>
+          <div class="flex justify-between items-center">
+            <!-- Cập nhật giá 55 -->
+            <span class="text-slate-300">Résine & poudre (Avec pointes)</span>
+            <span class="font-bold text-amber-200">$55</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Remplissages -->
+    <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800/80 shadow-md">
+      <h3 class="text-base font-serif font-semibold text-amber-300 mb-3 flex items-center">
+        <i data-lucide="refresh-cw" class="w-4 h-4 mr-2 text-amber-400"></i> Remplissages
+      </h3>
+      <div class="space-y-3 text-sm">
+        <div class="flex justify-between items-center py-2 border-b border-slate-800/50">
+          <span class="text-slate-300">Vernis régulier</span>
+          <!-- Cập nhật giá 40 -->
+          <span class="font-bold text-amber-200">$40</span>
+        </div>
+        <div class="flex justify-between items-center py-2 border-b border-slate-800/50">
+          <span class="text-slate-300">Shellac</span>
+          <!-- Cập nhật giá 45 -->
+          <span class="font-bold text-amber-300">$45</span>
+        </div>
+        <div class="flex justify-between items-center py-2">
+          <span class="text-slate-300">Extra long</span>
+          <!-- Cập nhật giá 55+ -->
+          <span class="font-bold text-amber-300">$55+</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TAB 3: OPTIONS & ÉPILATION -->
+<div id="tab-content-2" class="tab-content hidden space-y-6">
+  <div class="border-b border-amber-500/20 pb-3 flex justify-between items-end">
+    <div>
+      <span class="text-xs font-semibold text-amber-400 uppercase tracking-widest">Section 03</span>
+      <h2 class="text-2xl font-serif font-bold text-amber-100">Extra & Épilation</h2>
+    </div>
+    <span class="text-xs text-slate-400 italic">Soins & Waxing</span>
+  </div>
+
+  <div class="grid grid-cols-2 gap-6">
+    <!-- Soins & Options -->
+    <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800/80 shadow-md space-y-3">
+      <h3 class="text-base font-serif font-semibold text-amber-300 flex items-center">
+        <i data-lucide="heart" class="w-4 h-4 mr-2 text-amber-400"></i>
+        Soins & Options
+      </h3>
+      <div class="text-sm space-y-2">
+        <div class="flex justify-between border-b border-slate-800 pb-1.5">
+          <span class="text-slate-300">Traitement Paraffine (Mains / Pieds)</span>
+          <span class="font-bold text-amber-200">$12 / $15</span>
+        </div>
+        <div class="flex justify-between border-b border-slate-800 pb-1.5">
+          <span class="text-slate-300">Traitement Collagène</span>
+          <span class="font-bold text-amber-200">$10</span>
+        </div>
+        <div class="flex justify-between border-b border-slate-800 pb-1.5">
+          <span class="text-slate-300">Enlever Faux Ongles / Shellac</span>
+          <span class="font-bold text-amber-200">$20 / $15</span>
+        </div>
+        <div class="flex justify-between">
+          <span class="text-slate-300">Option Française</span>
+          <span class="font-bold text-amber-200">$10+</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Épilation (Waxing) -->
+    <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800/80 shadow-md space-y-3">
+      <h3 class="text-base font-serif font-semibold text-amber-300 mb-2 flex items-center">
+        <i data-lucide="scissors" class="w-4 h-4 mr-2 text-amber-400"></i>
+        Épilation (Waxing)
+      </h3>
+      <div class="grid grid-cols-2 gap-x-3 gap-y-2 text-xs">
+        <!-- Đã cập nhật giá và bổ sung các dịch vụ Waxing mới -->
+        <div class="flex justify-between border-b border-slate-800/60 pb-1"><span class="text-slate-400">Sourcils</span> <span class="text-amber-200 font-semibold">$12</span></div>
+        <div class="flex justify-between border-b border-slate-800/60 pb-1"><span class="text-slate-400">Lèvre supérieure</span> <span class="text-amber-200 font-semibold">$10</span></div>
+        <div class="flex justify-between border-b border-slate-800/60 pb-1"><span class="text-slate-400">Aisselles</span> <span class="text-amber-200 font-semibold">$15</span></div>
+        <div class="flex justify-between border-b border-slate-800/60 pb-1"><span class="text-slate-400">Demi-bras/jambes</span> <span class="text-amber-200 font-semibold">$25-$30</span></div>
+        <div class="flex justify-between border-b border-slate-800/60 pb-1"><span class="text-slate-400">Jambes/Bras complet</span> <span class="text-amber-200 font-semibold">$30-$45</span></div>
+        <div class="flex justify-between border-b border-slate-800/60 pb-1"><span class="text-slate-400">Bresilien</span> <span class="text-amber-200 font-semibold">$40-$45</span></div>
+        <div class="flex justify-between border-b border-slate-800/60 pb-1"><span class="text-slate-400">Dos</span> <span class="text-amber-200 font-semibold">$35-$40</span></div>
+      </div>
+    </div>
+  </div>
+</div>
 
         <div class="p-3 bg-slate-900/40 rounded-lg border border-slate-800 text-xs text-slate-400 flex items-start space-x-2">
           <i data-lucide="info" class="w-4 h-4 text-amber-400 shrink-0 mt-0.5"></i>
