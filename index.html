@@ -394,67 +394,68 @@
 
 </main>
 
-<!-- JavaScript Logic (Đã xử lý mã an toàn chống lỗi copy) -->
+<!-- JavaScript Logic -->
 <script>
-function initIcons() {
-  if (typeof lucide !== 'undefined' && lucide.createIcons) {
-    lucide.createIcons();
-  } else {
-    setTimeout(initIcons, 100);
-  }
-}
-
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initIcons);
-} else {
-  initIcons();
-}
-
-function updateClock() {
-  var now = new Date();
-  var hours = String(now.getHours()).padStart(2, '0');
-  var minutes = String(now.getMinutes()).padStart(2, '0');
-  var seconds = String(now.getSeconds()).padStart(2, '0');
-  var clockEl = document.getElementById('clock');
+document.addEventListener("DOMContentLoaded", function() {
   
-  if (clockEl) {
+  // 1. Khởi tạo Icon
+  try {
+    if (typeof lucide !== 'undefined') {
+      lucide.createIcons();
+    }
+  } catch (e) {
+    console.log("Lucide Error", e);
+  }
+
+  // 2. Chạy Đồng Hồ
+  var clockEl = document.getElementById('clock');
+  function updateClock() {
+    if (!clockEl) return;
+    var now = new Date();
+    var hours = String(now.getHours()).padStart(2, '0');
+    var minutes = String(now.getMinutes()).padStart(2, '0');
+    var seconds = String(now.getSeconds()).padStart(2, '0');
     clockEl.textContent = hours + ':' + minutes + ':' + seconds;
   }
-}
+  setInterval(updateClock, 1000);
+  updateClock();
 
-setInterval(updateClock, 1000);
-updateClock();
+  // 3. Chuyển Tab Bảng Giá Tự Động
+  var currentTab = 0;
+  var totalTabs = 3;
+  var tabContents = document.querySelectorAll('.tab-content');
+  var tabBtns = document.querySelectorAll('.tab-btn');
 
-var currentTab = 0;
-var totalTabs = 3;
-
-function switchTab(index) {
-  currentTab = index;
-  
-  var contents = document.querySelectorAll('.tab-content');
-  contents.forEach(function(el, i) {
-    if (i === index) {
-      el.classList.remove('hidden');
-    } else {
-      el.classList.add('hidden');
+  function switchTab(index) {
+    currentTab = index;
+    
+    // Đổi hiển thị nội dung
+    for (var i = 0; i < tabContents.length; i++) {
+      if (i === index) {
+        tabContents[i].classList.remove('hidden');
+      } else {
+        tabContents[i].classList.add('hidden');
+      }
     }
-  });
-  
-  var btns = document.querySelectorAll('.tab-btn');
-  btns.forEach(function(btn, i) {
-    if (i === index) {
-      btn.className = "tab-btn px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all duration-300 bg-amber-500 text-slate-950 shadow";
-    } else {
-      btn.className = "tab-btn px-3.5 py-1.5 rounded-full text-xs font-medium transition-all duration-300 text-slate-300 hover:text-white hover:bg-slate-800";
+    
+    // Đổi màu nút bấm
+    for (var j = 0; j < tabBtns.length; j++) {
+      if (j === index) {
+        tabBtns[j].className = "tab-btn px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all duration-300 bg-amber-500 text-slate-950 shadow";
+      } else {
+        tabBtns[j].className = "tab-btn px-3.5 py-1.5 rounded-full text-xs font-medium transition-all duration-300 text-slate-300 hover:text-white hover:bg-slate-800";
+      }
     }
-  });
-}
+  }
 
-setInterval(function() {
-  currentTab = (currentTab + 1) % totalTabs;
-  switchTab(currentTab);
-}, 12000);
+  // Cho phép bấm thủ công bằng tay (click vào tab)
+  window.switchTab = switchTab;
+
+  // Tự động chuyển sau mỗi 12 giây
+  setInterval(function() {
+    currentTab = (currentTab + 1) % totalTabs;
+    switchTab(currentTab);
+  }, 12000);
+
+});
 </script>
-
-</body>
-</html>
