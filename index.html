@@ -197,7 +197,7 @@
             </div>
             <div class="flex justify-between items-center py-1.5">
               <span class="text-slate-200 font-medium">Shellac + Calcium Base</span>
-              <span class="font-bold text-amber-300 text-lg">$80</span>
+              <span class="font-bold text-amber-300 text-lg">$95</span>
             </div>
           </div>
         </div>
@@ -226,8 +226,8 @@
               <span class="text-slate-200 font-medium block mb-2">Acrylique / Bio Gel / Après Gel X:</span>
               <div class="flex justify-between text-sm text-amber-200">
                 <span>Régulier: $48</span>
-                <span>Shellac: $52</span>
-                <span class="font-semibold text-amber-300">Extra long: $62+</span>
+                <span>Shellac: $55</span>
+                <span class="font-semibold text-amber-300">Extra long: $65+</span>
               </div>
             </div>
             <div class="border-b border-slate-800 pb-3">
@@ -252,15 +252,15 @@
           <div class="space-y-5 text-base">
             <div class="flex justify-between items-center py-3 border-b border-slate-800/50">
               <span class="text-slate-300">Vernis régulier</span>
-              <span class="font-bold text-amber-200">$40</span>
+              <span class="font-bold text-amber-200">$42</span>
             </div>
             <div class="flex justify-between items-center py-3 border-b border-slate-800/50">
               <span class="text-slate-300">Shellac</span>
-              <span class="font-bold text-amber-300">$45</span>
+              <span class="font-bold text-amber-300">$47</span>
             </div>
             <div class="flex justify-between items-center py-3">
               <span class="text-slate-300">Extra long</span>
-              <span class="font-bold text-amber-300">$55+</span>
+              <span class="font-bold text-amber-300">$57+</span>
             </div>
           </div>
         </div>
@@ -415,3 +415,63 @@
   </section>
 
 </main>
+  <!-- JavaScript Logic -->
+<script>
+// Khởi tạo Icon
+function initIcons() {
+  if (typeof lucide !== 'undefined' && lucide.createIcons) {
+    lucide.createIcons();
+  } else {
+    setTimeout(initIcons, 100);
+  }
+}
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initIcons);
+} else {
+  initIcons();
+}
+
+// Chạy Đồng Hồ
+function updateClock() {
+  const now = new Date();
+  const hours = String(now.getHours()).padStart(2, '0');
+  const minutes = String(now.getMinutes()).padStart(2, '0');
+  const seconds = String(now.getSeconds()).padStart(2, '0');
+  const clockEl = document.getElementById('clock');
+  if (clockEl) {
+    clockEl.textContent = `${hours}:${minutes}:${seconds}`;
+  }
+}
+setInterval(updateClock, 1000);
+updateClock();
+
+// Chuyển Tab Bảng Giá Tự Động
+let currentTab = 0;
+const totalTabs = 3;
+
+function switchTab(index) {
+  currentTab = index;
+  document.querySelectorAll('.tab-content').forEach((el, i) => {
+    if (i === index) {
+      el.classList.remove('hidden');
+    } else {
+      el.classList.add('hidden');
+    }
+  });
+  document.querySelectorAll('.tab-btn').forEach((btn, i) => {
+    if (i === index) {
+      btn.className = "tab-btn px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all duration-300 bg-amber-500 text-slate-950 shadow";
+    } else {
+      btn.className = "tab-btn px-3.5 py-1.5 rounded-full text-xs font-medium transition-all duration-300 text-slate-300 hover:text-white hover:bg-slate-800";
+    }
+  });
+}
+
+// Tự động chuyển sau mỗi 15 giây
+setInterval(() => {
+  currentTab = (currentTab + 1) % totalTabs;
+  switchTab(currentTab);
+}, 15000);
+</script>
+</body>
+</html>
