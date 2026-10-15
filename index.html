@@ -361,13 +361,17 @@
     
     <!-- Main Video / Slideshow Container -->
     <div class="relative flex-1 w-full h-full bg-slate-950 flex items-center justify-center overflow-hidden">
-      <video id="nail-video" class="w-full h-full object-cover" autoplay loop muted playsinline poster="https://images.unsplash.com/photo-1604654894610-df63bc536371?q=80&w=1000&auto=format&fit=crop">
-        <source src="https://assets.mixkit.co/videos/preview/mixkit-beautician-applying-nail-polish-41528-large.mp4" type="video/mp4">
+      <!-- Đã xóa hình nền bàn tay cũ, chỉ chạy video -->
+      <video id="nail-video" class="w-full h-full object-cover" autoplay loop muted playsinline>
+        
+        <!-- Gọi đúng tên file video bạn vừa tải lên ở Bước 1 -->
+        <source src="2.1012.mp4" type="video/mp4">
+        
         Votre navigateur ne supporte pas la vidéo.
       </video>
       <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950/40 pointer-events-none"></div>
       
-      <!-- Chữ "Inspiration du jour" - Đã sửa font chữ theo ý bạn -->
+      <!-- Chữ "Inspiration du jour" -->
       <div class="absolute bottom-6 left-6 right-6 z-10 bg-slate-950/85 backdrop-blur p-4 rounded-2xl border border-amber-500/20 text-center shadow-2xl">
         <p class="text-xs text-amber-400 font-semibold uppercase tracking-widest mb-1">Inspiration du jour</p>
         <h3 class="text-base font-sans font-medium tracking-wide text-amber-100">"Sublimez vos mains avec notre Gel Bio & Nail Art Artisanal"</h3>
