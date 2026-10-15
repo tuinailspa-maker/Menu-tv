@@ -76,17 +76,23 @@
 
 
     <!-- Contact & Location Widget (New Header Widget) -->
-    <div class="hidden xl:flex items-center space-x-4 bg-slate-950/80 px-3.5 py-1.5 rounded-xl border border-amber-500/20 text-xs">
-      <div class="flex items-center space-x-1.5 text-slate-300">
-        <i data-lucide="map-pin" class="w-3.5 h-3.5 text-amber-400 shrink-0"></i>
-        <span>1570 Saint-Timothée, H2L 3N9</span>
-      </div>
-      <span class="text-slate-700">|</span>
-      <a href="tel:4387777043" class="flex items-center space-x-1.5 text-amber-300 font-semibold hover:text-amber-200 transition">
-        <i data-lucide="phone" class="w-3.5 h-3.5 text-amber-400 shrink-0"></i>
-        <span>438.777.7043</span>
-      </a>
-    </div>
+<div class="hidden xl:flex items-center space-x-6 bg-slate-950/80 px-4 py-2 rounded-xl border border-amber-500/20">
+  
+  <!-- Chỉnh địa chỉ to bằng text-xs (giống La Beauté Des Ongles) -->
+  <div class="flex items-center space-x-2 text-slate-300 text-xs">
+    <i data-lucide="map-pin" class="w-4 h-4 text-amber-400 shrink-0"></i>
+    <span class="tracking-wide">1570 Saint-Timothée, H2L 3N9</span>
+  </div>
+  
+  <span class="text-slate-700">|</span>
+  
+  <!-- Chỉnh số điện thoại to bằng text-sm và in đậm để nổi bật hơn -->
+  <a href="tel:4387777043" class="flex items-center space-x-2 text-amber-300 font-bold text-sm hover:text-amber-200 transition tracking-wider">
+    <i data-lucide="phone" class="w-4 h-4 text-amber-400 shrink-0"></i>
+    <span>438.777.7043</span>
+  </a>
+  
+</div>
 
     <!-- Category Switcher Tabs -->
     <div class="flex items-center space-x-1.5 bg-slate-950/60 p-1 rounded-full border border-slate-800" id="tabs-container">
