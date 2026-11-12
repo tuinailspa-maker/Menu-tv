@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr" class="h-full bg-slate-950 text-slate-100 antialiased font-sans">
+<html lang="fr" class="h-full text-slate-100 antialiased font-sans">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -41,12 +41,13 @@
       scrollbar-width: none;
     }
 
-    /* Hiệu ứng nền Noel tự động chuyển đổi */
-    body {
-      background-size: cover !important;
-      background-position: center !important;
-      background-repeat: no-repeat !important;
-      transition: background-image 1.5s ease-in-out;
+    /* Lớp nền Noel chuyển màu mượt mà không phụ thuộc ảnh mạng ngoài */
+    #noel-bg-layer {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      transition: opacity 1.5s ease-in-out;
+      pointer-events: none;
     }
 
     /* Hiệu ứng biểu tượng Giáng sinh rơi */
@@ -56,6 +57,7 @@
       z-index: 9999;
       pointer-events: none;
       user-select: none;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
       animation: xmasFall linear forwards;
     }
 
@@ -66,15 +68,18 @@
       }
       100% {
         transform: translateY(105vh) rotate(360deg);
-        opacity: 0.25;
+        opacity: 0.3;
       }
     }
   </style>
 </head>
-<body class="h-full overflow-hidden flex flex-col text-slate-100 select-none">
+<body class="h-full overflow-hidden flex flex-col bg-red-950 text-slate-100 select-none relative">
+
+  <!-- Lớp phông nền Noel tự động đổi màu & họa tiết -->
+  <div id="noel-bg-layer" style="background: radial-gradient(circle at 20% 25%, #991b1b 0%, #450a0a 55%, #1e1b4b 100%);"></div>
 
   <!-- Top Header / Navigation Bar -->
-  <header class="h-16 bg-slate-900/75 border-b border-amber-500/30 px-5 flex items-center justify-between z-10 shrink-0 backdrop-blur-md">
+  <header class="h-16 bg-slate-950/65 border-b border-amber-400/35 px-5 flex items-center justify-between z-10 shrink-0 backdrop-blur-md">
     
     <!-- Logo & Branding -->
     <div class="flex items-center space-x-3">
@@ -83,16 +88,16 @@
       </div>
       <div class="flex flex-col justify-center mt-1">
         <h1 class="text-xl font-serif font-bold tracking-wide text-amber-200 leading-none">
-          TUI NAIL SPA
+          TUI NAIL SPA 🎄
         </h1>
-        <p class="text-[10px] uppercase tracking-widest text-slate-300 mt-1">
+        <p class="text-[10px] uppercase tracking-widest text-amber-100/80 mt-1">
           La Beauté Des Ongles
         </p>
       </div>
     </div>
 
     <!-- Contact & Location Widget -->
-    <div class="hidden xl:flex items-center space-x-6 bg-slate-950/65 px-4 py-1.5 rounded-xl border border-amber-500/30">
+    <div class="hidden xl:flex items-center space-x-6 bg-slate-950/60 px-4 py-1.5 rounded-xl border border-amber-400/30">
       <div class="flex items-center space-x-2 text-slate-200 text-xs uppercase tracking-wide">
         <i data-lucide="map-pin" class="w-4 h-4 text-amber-400 shrink-0"></i>
         <span>1570 Saint-Timothée, H2L 3N9</span>
@@ -105,7 +110,7 @@
     </div>
 
     <!-- Category Switcher Tabs -->
-    <div class="flex items-center space-x-1.5 bg-slate-950/55 p-1 rounded-full border border-slate-700/70" id="tabs-container">
+    <div class="flex items-center space-x-1.5 bg-slate-950/55 p-1 rounded-full border border-amber-400/25" id="tabs-container">
       <button onclick="switchTab(0)" class="tab-btn px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all duration-300 bg-amber-500 text-slate-950 shadow" data-tab="0">
         1. Soins des Pieds & Mains
       </button>
@@ -121,34 +126,34 @@
     <div class="flex items-center space-x-3">
       <div class="text-right">
         <div id="clock" class="text-sm font-semibold font-mono text-amber-300">00:00:00</div>
-        <div class="text-[9px] text-slate-300 uppercase tracking-wider">Ouvert 7/7</div>
+        <div class="text-[9px] text-slate-200 uppercase tracking-wider">Ouvert 7/7</div>
       </div>
     </div>
   </header>
 
-<!-- Main Split Layout (72% bảng giá bên trái - nền bán trong suốt để lộ hình Noel, 28% video bên phải) -->
-<main class="flex-1 flex overflow-hidden">
+<!-- Main Split Layout -->
+<main class="flex-1 flex overflow-hidden z-10">
   
   <!-- ========================================== -->
   <!-- LEFT SIDE: MENU POSTER BOARD (72% WIDTH)   -->
   <!-- ========================================== -->
-  <section class="w-[72%] h-full p-4 overflow-y-auto no-scrollbar flex flex-col justify-between border-r border-amber-500/20 bg-slate-950/35 backdrop-blur-[2px] relative">
+  <section class="w-[72%] h-full p-4 overflow-y-auto no-scrollbar flex flex-col justify-between border-r border-amber-400/25 bg-transparent relative">
     
     <!-- ----------------------------------------- -->
     <!-- TAB 1: SOIN DES PIEDS & MAINS -->
     <!-- ----------------------------------------- -->
     <div id="tab-content-0" class="tab-content space-y-4">
-      <div class="border-b border-amber-500/30 pb-3 flex justify-between items-end">
+      <div class="border-b border-amber-400/35 pb-3 flex justify-between items-end">
         <div>
-          <span class="text-xs font-semibold text-amber-400 uppercase tracking-widest">Section 01</span>
+          <span class="text-xs font-semibold text-amber-300 uppercase tracking-widest">✨ Joyeux Noël • Section 01</span>
           <h2 class="text-2xl font-serif font-bold text-amber-100 drop-shadow">Soin des Pieds & Mains</h2>
         </div>
-        <span class="text-xs text-slate-200 italic">Prix hors taxes</span>
+        <span class="text-xs text-amber-100/80 italic">Prix hors taxes</span>
       </div>
 
       <div class="grid grid-cols-2 gap-4">
         <!-- Manucure & Pédicure Table -->
-        <div class="bg-slate-950/65 backdrop-blur-md p-4 rounded-xl border border-amber-500/20 shadow-lg flex flex-col justify-center">
+        <div class="bg-slate-950/60 backdrop-blur-md p-4 rounded-xl border border-amber-400/25 shadow-lg flex flex-col justify-center">
           <h3 class="text-base font-serif font-semibold text-amber-300 mb-3 flex items-center">
             <i data-lucide="hand" class="w-4 h-4 mr-2 text-amber-400"></i> Manucure & Pédicure
           </h3>
@@ -182,26 +187,26 @@
         </div>
 
         <!-- Combos Box -->
-        <div class="bg-gradient-to-br from-red-950/65 to-slate-950/75 backdrop-blur-md p-4 rounded-xl border border-amber-500/40 shadow-lg relative overflow-hidden flex flex-col justify-center">
-          <div class="absolute top-0 right-0 bg-amber-500 text-slate-950 font-bold text-[10px] px-2.5 py-0.5 rounded-bl">OFFRE SPÉCIALE</div>
+        <div class="bg-gradient-to-br from-red-900/65 to-slate-950/70 backdrop-blur-md p-4 rounded-xl border border-amber-400/45 shadow-lg relative overflow-hidden flex flex-col justify-center">
+          <div class="absolute top-0 right-0 bg-amber-400 text-slate-950 font-bold text-[10px] px-2.5 py-0.5 rounded-bl">OFFRE SPÉCIALE</div>
           <h3 class="text-base font-serif font-semibold text-amber-300 mb-3 flex items-center">
             <i data-lucide="sparkles" class="w-4 h-4 mr-2 text-amber-400"></i> Combos (Mani-Pédi)
           </h3>
           <div class="space-y-2.5 text-sm">
             <div class="flex justify-between items-center py-1 border-b border-slate-700/60">
-              <span class="text-slate-200">Sans vernis</span>
+              <span class="text-slate-100">Sans vernis</span>
               <span class="font-bold text-amber-300">$55</span>
             </div>
             <div class="flex justify-between items-center py-1 border-b border-slate-700/60">
-              <span class="text-slate-200">Avec vernis régulier</span>
+              <span class="text-slate-100">Avec vernis régulier</span>
               <span class="font-bold text-amber-300">$65</span>
             </div>
             <div class="flex justify-between items-center py-1 border-b border-slate-700/60">
-              <span class="text-slate-200">Shellac</span>
+              <span class="text-slate-100">Shellac</span>
               <span class="font-bold text-amber-300">$80</span>
             </div>
             <div class="flex justify-between items-center py-1">
-              <span class="text-slate-100 font-medium">Shellac + Calcium Base</span>
+              <span class="text-white font-medium">Shellac + Calcium Base</span>
               <span class="font-bold text-amber-300 text-base">$95</span>
             </div>
           </div>
@@ -213,16 +218,16 @@
     <!-- TAB 2: POSE D'ONGLES & REMPLISSAGES -->
     <!-- ----------------------------------------- -->
     <div id="tab-content-1" class="tab-content hidden space-y-4">
-      <div class="border-b border-amber-500/30 pb-3 flex justify-between items-end">
+      <div class="border-b border-amber-400/35 pb-3 flex justify-between items-end">
         <div>
-          <span class="text-xs font-semibold text-amber-400 uppercase tracking-widest">Section 02</span>
+          <span class="text-xs font-semibold text-amber-300 uppercase tracking-widest">✨ Joyeux Noël • Section 02</span>
           <h2 class="text-2xl font-serif font-bold text-amber-100 drop-shadow">Pose d'ongles & Remplissages</h2>
         </div>
-        <span class="text-xs text-slate-200 italic">Nouveau Set & Remplissages</span>
+        <span class="text-xs text-amber-100/80 italic">Nouveau Set & Remplissages</span>
       </div>
 
       <div class="grid grid-cols-2 gap-4">
-        <div class="bg-slate-950/65 backdrop-blur-md p-4 rounded-xl border border-amber-500/20 shadow-lg flex flex-col justify-center">
+        <div class="bg-slate-950/60 backdrop-blur-md p-4 rounded-xl border border-amber-400/25 shadow-lg flex flex-col justify-center">
           <h3 class="text-base font-serif font-semibold text-amber-300 mb-3 flex items-center">
             <i data-lucide="gem" class="w-4 h-4 mr-2 text-amber-400"></i> Pose d'ongles
           </h3>
@@ -237,34 +242,34 @@
             </div>
             <div class="border-b border-slate-700/70 pb-2">
               <div class="flex justify-between items-center">
-                <span class="text-slate-200">Résine & poudre (Sans pointes)</span>
+                <span class="text-slate-100">Résine & poudre (Sans pointes)</span>
                 <span class="font-bold text-amber-200">$50</span>
               </div>
             </div>
             <div>
               <div class="flex justify-between items-center">
-                <span class="text-slate-200">Résine & poudre (Avec pointes)</span>
+                <span class="text-slate-100">Résine & poudre (Avec pointes)</span>
                 <span class="font-bold text-amber-200">$55</span>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="bg-slate-950/65 backdrop-blur-md p-4 rounded-xl border border-amber-500/20 shadow-lg flex flex-col justify-center">
+        <div class="bg-slate-950/60 backdrop-blur-md p-4 rounded-xl border border-amber-400/25 shadow-lg flex flex-col justify-center">
           <h3 class="text-base font-serif font-semibold text-amber-300 mb-3 flex items-center">
             <i data-lucide="refresh-cw" class="w-4 h-4 mr-2 text-amber-400"></i> Remplissages
           </h3>
           <div class="space-y-3 text-sm">
             <div class="flex justify-between items-center py-2 border-b border-slate-700/60">
-              <span class="text-slate-200">Vernis régulier</span>
+              <span class="text-slate-100">Vernis régulier</span>
               <span class="font-bold text-amber-200">$42</span>
             </div>
             <div class="flex justify-between items-center py-2 border-b border-slate-700/60">
-              <span class="text-slate-200">Shellac</span>
+              <span class="text-slate-100">Shellac</span>
               <span class="font-bold text-amber-300">$47</span>
             </div>
             <div class="flex justify-between items-center py-2">
-              <span class="text-slate-200">Extra long</span>
+              <span class="text-slate-100">Extra long</span>
               <span class="font-bold text-amber-300">$57+</span>
             </div>
           </div>
@@ -276,51 +281,51 @@
     <!-- TAB 3: OPTIONS & ÉPILATION -->
     <!-- ----------------------------------------- -->
     <div id="tab-content-2" class="tab-content hidden space-y-4">
-      <div class="border-b border-amber-500/30 pb-3 flex justify-between items-end">
+      <div class="border-b border-amber-400/35 pb-3 flex justify-between items-end">
         <div>
-          <span class="text-xs font-semibold text-amber-400 uppercase tracking-widest">Section 03</span>
+          <span class="text-xs font-semibold text-amber-300 uppercase tracking-widest">✨ Joyeux Noël • Section 03</span>
           <h2 class="text-2xl font-serif font-bold text-amber-100 drop-shadow">Extra & Épilation</h2>
         </div>
-        <span class="text-xs text-slate-200 italic">Soins & Waxing</span>
+        <span class="text-xs text-amber-100/80 italic">Soins & Waxing</span>
       </div>
 
       <div class="grid grid-cols-2 gap-4">
-        <div class="bg-slate-950/65 backdrop-blur-md p-4 rounded-xl border border-amber-500/20 shadow-lg flex flex-col justify-center">
+        <div class="bg-slate-950/60 backdrop-blur-md p-4 rounded-xl border border-amber-400/25 shadow-lg flex flex-col justify-center">
           <h3 class="text-base font-serif font-semibold text-amber-300 mb-3 flex items-center">
             <i data-lucide="heart" class="w-4 h-4 mr-2 text-amber-400"></i> Soins & Options
           </h3>
           <div class="text-sm space-y-2.5">
             <div class="flex justify-between border-b border-slate-700/70 pb-1.5">
-              <span class="text-slate-200">Traitement Paraffine (Mains / Pieds)</span>
+              <span class="text-slate-100">Traitement Paraffine (Mains / Pieds)</span>
               <span class="font-bold text-amber-200">$12 / $15</span>
             </div>
             <div class="flex justify-between border-b border-slate-700/70 pb-1.5">
-              <span class="text-slate-200">Traitement Collagène</span>
+              <span class="text-slate-100">Traitement Collagène</span>
               <span class="font-bold text-amber-200">$10</span>
             </div>
             <div class="flex justify-between border-b border-slate-700/70 pb-1.5">
-              <span class="text-slate-200">Enlever Faux Ongles / Shellac</span>
+              <span class="text-slate-100">Enlever Faux Ongles / Shellac</span>
               <span class="font-bold text-amber-200">$20 / $15</span>
             </div>
             <div class="flex justify-between pb-1">
-              <span class="text-slate-200">Option Française</span>
+              <span class="text-slate-100">Option Française</span>
               <span class="font-bold text-amber-200">$10+</span>
             </div>
           </div>
         </div>
 
-        <div class="bg-slate-950/65 backdrop-blur-md p-4 rounded-xl border border-amber-500/20 shadow-lg flex flex-col justify-center">
+        <div class="bg-slate-950/60 backdrop-blur-md p-4 rounded-xl border border-amber-400/25 shadow-lg flex flex-col justify-center">
           <h3 class="text-base font-serif font-semibold text-amber-300 mb-3 flex items-center">
             <i data-lucide="scissors" class="w-4 h-4 mr-2 text-amber-400"></i> Épilation (Waxing)
           </h3>
           <div class="grid grid-cols-2 gap-x-4 gap-y-2 text-xs">
-            <div class="flex justify-between border-b border-slate-700/60 pb-1"><span class="text-slate-300">Sourcils</span> <span class="text-amber-200 font-semibold">$12</span></div>
-            <div class="flex justify-between border-b border-slate-700/60 pb-1"><span class="text-slate-300">Lèvre sup.</span> <span class="text-amber-200 font-semibold">$10</span></div>
-            <div class="flex justify-between border-b border-slate-700/60 pb-1"><span class="text-slate-300">Aisselles</span> <span class="text-amber-200 font-semibold">$15</span></div>
-            <div class="flex justify-between border-b border-slate-700/60 pb-1"><span class="text-slate-300">Demi bras/jam.</span> <span class="text-amber-200 font-semibold">$25-$30</span></div>
-            <div class="flex justify-between border-b border-slate-700/60 pb-1"><span class="text-slate-300">Bras/Jamb. complet</span> <span class="text-amber-200 font-semibold">$30-$45</span></div>
-            <div class="flex justify-between border-b border-slate-700/60 pb-1"><span class="text-slate-300">Bresilien</span> <span class="text-amber-200 font-semibold">$40-$45</span></div>
-            <div class="flex justify-between border-b border-slate-700/60 pb-1"><span class="text-slate-300">Dos</span> <span class="text-amber-200 font-semibold">$35-$40</span></div>
+            <div class="flex justify-between border-b border-slate-700/60 pb-1"><span class="text-slate-200">Sourcils</span> <span class="text-amber-200 font-semibold">$12</span></div>
+            <div class="flex justify-between border-b border-slate-700/60 pb-1"><span class="text-slate-200">Lèvre sup.</span> <span class="text-amber-200 font-semibold">$10</span></div>
+            <div class="flex justify-between border-b border-slate-700/60 pb-1"><span class="text-slate-200">Aisselles</span> <span class="text-amber-200 font-semibold">$15</span></div>
+            <div class="flex justify-between border-b border-slate-700/60 pb-1"><span class="text-slate-200">Demi bras/jam.</span> <span class="text-amber-200 font-semibold">$25-$30</span></div>
+            <div class="flex justify-between border-b border-slate-700/60 pb-1"><span class="text-slate-200">Bras/Jamb. complet</span> <span class="text-amber-200 font-semibold">$30-$45</span></div>
+            <div class="flex justify-between border-b border-slate-700/60 pb-1"><span class="text-slate-200">Bresilien</span> <span class="text-amber-200 font-semibold">$40-$45</span></div>
+            <div class="flex justify-between border-b border-slate-700/60 pb-1"><span class="text-slate-200">Dos</span> <span class="text-amber-200 font-semibold">$35-$40</span></div>
           </div>
         </div>
       </div>
@@ -329,18 +334,16 @@
     <!-- ----------------------------------------- -->
     <!-- FOOTER: QR CODE & CONTACT INFO -->
     <!-- ----------------------------------------- -->
-    <div class="mt-2 pt-2 flex items-center justify-between bg-gradient-to-r from-slate-950/75 via-slate-900/75 to-red-950/65 backdrop-blur-md px-3.5 py-2 rounded-xl border border-amber-500/30 shadow-xl shrink-0">
+    <div class="mt-2 pt-2 flex items-center justify-between bg-slate-950/65 backdrop-blur-md px-3.5 py-2 rounded-xl border border-amber-400/35 shadow-xl shrink-0">
       
       <!-- QR Code & Instructions -->
       <div class="flex items-center space-x-3">
-        <!-- Khung chứa QR -->
         <div class="p-1.5 bg-white rounded-lg shadow-lg shrink-0">
           <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://book.squareup.com/appointments/3861otg2sucy9o/location/R73A64VPAR34X/services" alt="Square Booking QR Code" class="w-12 h-12">
         </div>
         
-        <!-- Nội dung Hướng dẫn & Ưu đãi -->
         <div class="flex flex-col justify-center">
-          <div class="inline-flex items-center space-x-1 px-2 py-0.5 rounded-full bg-amber-500/15 border border-amber-500/30 text-amber-300 text-[10px] font-medium mb-1 w-max">
+          <div class="inline-flex items-center space-x-1 px-2 py-0.5 rounded-full bg-amber-500/20 border border-amber-400/40 text-amber-300 text-[10px] font-medium mb-1 w-max">
             <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
             <span>RÉSERVATION EN LIGNE 24/7</span>
           </div>
@@ -360,7 +363,7 @@
           <i data-lucide="shield-check" class="w-3.5 h-3.5 text-amber-400"></i>
           <span>La garantie de 7 jours s'applique.</span>
         </div>
-        <div class="text-[10px] text-slate-300 italic mt-0.5 tracking-wide whitespace-nowrap">
+        <div class="text-[10px] text-slate-200 italic mt-0.5 tracking-wide whitespace-nowrap">
           ( Les prix sont hors taxes. )
         </div>
       </div>
@@ -370,10 +373,10 @@
   <!-- ========================================== -->
   <!-- RIGHT SIDE: VIDEO & MEDIA SHOWCASE (28% WIDTH) -->
   <!-- ========================================== -->
-  <section class="w-[28%] h-full bg-slate-900/90 flex flex-col justify-between relative overflow-hidden border-l border-slate-800">
+  <section class="w-[28%] h-full bg-slate-900/90 flex flex-col justify-between relative overflow-hidden border-l border-amber-400/25">
     
     <!-- Top Video Header Overlay -->
-    <div class="absolute top-3 left-3 right-3 z-10 flex items-center justify-between bg-slate-950/80 backdrop-blur px-3 py-2 rounded-lg border border-slate-800">
+    <div class="absolute top-3 left-3 right-3 z-10 flex items-center justify-between bg-slate-950/80 backdrop-blur px-3 py-2 rounded-lg border border-amber-400/30">
       <div class="flex items-center space-x-2">
         <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
         <span class="text-xs font-semibold uppercase tracking-wider text-slate-200">Galerie Nail Art</span>
@@ -389,7 +392,7 @@
       <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950/40 pointer-events-none"></div>
       
       <!-- Chữ "Inspiration du jour" -->
-      <div class="absolute bottom-4 left-4 right-4 z-10 bg-slate-950/85 backdrop-blur p-3 rounded-xl border border-amber-500/20 text-center shadow-xl">
+      <div class="absolute bottom-4 left-4 right-4 z-10 bg-slate-950/85 backdrop-blur p-3 rounded-xl border border-amber-400/30 text-center shadow-xl">
         <p class="text-[10px] text-amber-400 font-semibold uppercase tracking-widest mb-0.5">Inspiration du jour</p>
         <h3 class="text-xs font-sans font-medium tracking-wide text-amber-100">"Sublimez vos mains avec notre Gel Bio & Nail Art Artisanal"</h3>
       </div>
@@ -449,8 +452,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
   function switchTab(index) {
     currentTab = index;
-    
-    // Đổi hiển thị nội dung
     for (var i = 0; i < tabContents.length; i++) {
       if (i === index) {
         tabContents[i].classList.remove('hidden');
@@ -458,8 +459,6 @@ document.addEventListener("DOMContentLoaded", function() {
         tabContents[i].classList.add('hidden');
       }
     }
-    
-    // Đổi màu nút bấm
     for (var j = 0; j < tabBtns.length; j++) {
       if (j === index) {
         tabBtns[j].className = "tab-btn px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all duration-300 bg-amber-500 text-slate-950 shadow";
@@ -469,16 +468,50 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   }
 
-  // Cho phép bấm thủ công bằng tay (click vào tab)
   window.switchTab = switchTab;
 
-  // Tự động chuyển sau mỗi 12 giây
   setInterval(function() {
     currentTab = (currentTab + 1) % totalTabs;
     switchTab(currentTab);
   }, 12000);
 
-  // 4. DANH SÁCH HÌNH NỀN NOEL TỰ ĐỘNG ĐỔI
-  const noelBackgrounds = [
-    "https://images.unsplash.com/photo-1543589077-47d81606c1bf?q=80&w=1920&auto=format&fit=crop", // Nền đèn vàng ấm & cây thông
-    "
+  // 4. HIỆU ỨNG ĐỔI PHÔNG NỀN NOEL LIÊN TỤC (Đỏ nhung - Xanh thông - Vàng đồng ấm)
+  var bgLayer = document.getElementById('noel-bg-layer');
+  var noelThemes = [
+    "radial-gradient(circle at 20% 25%, #991b1b 0%, #450a0a 55%, #1e1b4b 100%)", // Đỏ rượu vang Noel & ánh sao
+    "radial-gradient(circle at 75% 30%, #065f46 0%, #022c22 55%, #0f172a 100%)", // Xanh cây thông Noel sang trọng
+    "radial-gradient(circle at 50% 20%, #92400e 0%, #451a03 55%, #1c1917 100%)"  // Ánh đèn vàng đồng Giáng sinh
+  ];
+  var bgIdx = 0;
+  setInterval(function() {
+    bgIdx = (bgIdx + 1) % noelThemes.length;
+    if (bgLayer) {
+      bgLayer.style.background = noelThemes[bgIdx];
+    }
+  }, 6000); // Đổi tông nền mỗi 6 giây
+
+  // 5. HIỆU ỨNG BIỂU TƯỢNG NOEL RƠI LIÊN TỤC
+  var xmasIcons = ["❄️", "🎄", "✨", "🎁", "⛄", "🔔"];
+  function createXmasEffect() {
+    var item = document.createElement("div");
+    item.classList.add("xmas-item");
+    item.innerText = xmasIcons[Math.floor(Math.random() * xmasIcons.length)];
+    item.style.left = (Math.random() * 96 + 2) + "vw";
+    item.style.fontSize = (Math.random() * 18 + 16) + "px";
+    item.style.animationDuration = (Math.random() * 4 + 5) + "s";
+    document.body.appendChild(item);
+
+    setTimeout(function() {
+      item.remove();
+    }, 9500);
+  }
+  // Thả ngay vài biểu tượng lúc vừa mở trang
+  for (var k = 0; k < 6; k++) {
+    setTimeout(createXmasEffect, k * 300);
+  }
+  setInterval(createXmasEffect, 600);
+
+});
+</script>
+</body>
+</html>
