@@ -40,6 +40,39 @@
       -ms-overflow-style: none;
       scrollbar-width: none;
     }
+    <script>
+  // 1. DANH SÁCH HÌNH NỀN NOEL TỰ ĐỘNG ĐỔI (Bạn có thể thay bằng link ảnh của tiệm)
+  const noelBackgrounds = [
+    "https://images.unsplash.com/photo-1543589077-47d81606c1bf?q=80&w=1080&auto=format&fit=crop", // Nền đèn vàng ấm & thông
+    "https://images.unsplash.com/photo-1512389142860-9c449e58a543?q=80&w=1080&auto=format&fit=crop", // Nền tuyết trắng & quả châu đỏ
+    "https://images.unsplash.com/photo-1576919228236-a097c32a5cd4?q=80&w=1080&auto=format&fit=crop"  // Nền trang trí Noel sang trọng
+  ];
+
+  let bgIndex = 0;
+  function changeNoelBackground() {
+    document.body.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('${noelBackgrounds[bgIndex]}')`;
+    bgIndex = (bgIndex + 1) % noelBackgrounds.length;
+  }
+  changeNoelBackground(); // Chạy ngay khi mở trang
+  setInterval(changeNoelBackground, 8000); // Đổi nền mỗi 8 giây (8000ms)
+
+  // 2. HIỆU ỨNG BIỂU TƯỢNG NOEL RƠI LIÊN TỤC
+  const xmasIcons = ["❄️", "🎄", "✨", "🎁", "⛄"];
+  function createXmasEffect() {
+    const item = document.createElement("div");
+    item.classList.add("xmas-item");
+    item.innerText = xmasIcons[Math.floor(Math.random() * xmasIcons.length)];
+    item.style.left = Math.random() * 100 + "vw";
+    item.style.fontSize = (Math.random() * 16 + 14) + "px"; // Kích thước từ 14px - 30px
+    item.style.animationDuration = (Math.random() * 5 + 6) + "s"; // Tốc độ rơi 6 - 11 giây
+    document.body.appendChild(item);
+
+    setTimeout(() => {
+      item.remove();
+    }, 11000);
+  }
+  setInterval(createXmasEffect, 700); // Cứ 0.7 giây thả 1 biểu tượng
+</script>
   </style>
 </head>
 <body class="h-full overflow-hidden flex flex-col bg-slate-950 text-slate-100 select-none">
